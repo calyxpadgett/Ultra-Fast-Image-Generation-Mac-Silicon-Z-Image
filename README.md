@@ -12,16 +12,25 @@
 
 ## Benchmarks
 
-Tested on **Mac M2 Max (32GB)**:
+### Mac M2 Max (32GB)
 
 | Resolution | Steps | Time | Speed |
 |------------|-------|------|-------|
 | 512x512 | 7 | **14s** | 2.08s/step |
 | 768x768 | 7 | **31s** | 4.43s/step |
 
-**RAM Usage**: ~15.48 GB
+### Mac M3 (18GB)
+
+| Resolution | Steps | Time | Speed |
+|------------|-------|------|-------|
+| 512x512 | 7 | **74s** | 10.6s/step |
+| 768x768 | 7 | **2.5 min** | 21.4s/step |
+
+**RAM Usage**: ~15.5 GB
 
 **Recommended**: 768x768 @ 7-8 steps for best quality/speed balance.
+
+> **Note**: M2 Max has significantly more GPU cores (30-38) vs base M3 (10), which explains the speed difference. M3 Pro/Max should be much faster.
 
 ## Model
 
