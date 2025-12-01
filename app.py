@@ -69,11 +69,9 @@ def load_pipeline(device="mps"):
 
     print(f"Loading Z-Image-Turbo UINT4 on {device}...")
 
-    # Use float16 for CUDA and MPS (M-series optimization), float32 for CPU
+    # Use float16 for CUDA, float32 for MPS/CPU
     if device == "cuda":
         dtype = torch.float16
-    elif device == "mps":
-        dtype = torch.float16  # Optimization for M-series
     else:
         dtype = torch.float32
 
