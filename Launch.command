@@ -104,4 +104,5 @@ echo ""
 (sleep 3 && open http://localhost:7860) &
 
 # Run the app
+export HF_HUB_ENABLE_HF_TRANSFER=0
 python app.py

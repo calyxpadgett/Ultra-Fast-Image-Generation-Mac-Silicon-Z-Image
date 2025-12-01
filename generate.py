@@ -9,6 +9,7 @@ import argparse
 
 # Enable fast-math for MPS
 os.environ["PYTORCH_MPS_FAST_MATH"] = "1"
+os.environ["HF_HUB_ENABLE_HF_TRANSFER"] = "0"
 
 import torch
 
@@ -33,15 +34,15 @@ def load_pipeline(device="mps"):
     pipe.to(device)
 
     # Memory optimizations
-    pipe.enable_attention_slicing()
+    # pipe.enable_attention_slicing()
 
     if hasattr(pipe, "enable_vae_slicing"):
-        pipe.enable_vae_slicing()
-        print("VAE slicing enabled")
+        # pipe.enable_vae_slicing()
+        print("VAE slicing disabled")
 
     if hasattr(getattr(pipe, "vae", None), "enable_tiling"):
-        pipe.vae.enable_tiling()
-        print("VAE tiling enabled")
+        # pipe.vae.enable_tiling()
+        print("VAE tiling disabled")
 
     print("Pipeline loaded!")
     return pipe
