@@ -101,11 +101,16 @@ def load_pipeline(device="mps"):
         return None
 
 
-def interrupt_callback(step: int, timestep: int, latents: torch.FloatTensor):
+def interrupt_callback(*args, **kwargs):
     """Callback to stop generation."""
     global stop_signal
     if stop_signal:
         raise RuntimeError("Generation stopped by user")
+    
+    # Return the last positional argument if it's a dict (callback_kwargs)
+    if args and isinstance(args[-1], dict):
+        return args[-1]
+    return {}
 
 
 def generate_image(prompt, height, width, steps, seed, device):
